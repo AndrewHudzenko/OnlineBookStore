@@ -3,10 +3,9 @@ package com.mate.onlinebookstore.onlinebookstore.service.impl;
 import com.mate.onlinebookstore.onlinebookstore.model.Book;
 import com.mate.onlinebookstore.onlinebookstore.repository.BookRepository;
 import com.mate.onlinebookstore.onlinebookstore.service.BookService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
