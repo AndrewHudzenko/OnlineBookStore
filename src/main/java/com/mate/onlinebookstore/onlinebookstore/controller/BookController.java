@@ -1,6 +1,7 @@
 package com.mate.onlinebookstore.onlinebookstore.controller;
 
 import com.mate.onlinebookstore.onlinebookstore.dto.BookDto;
+import com.mate.onlinebookstore.onlinebookstore.dto.BookSearchParameters;
 import com.mate.onlinebookstore.onlinebookstore.dto.CreateBookRequestDto;
 import com.mate.onlinebookstore.onlinebookstore.service.BookService;
 import java.util.List;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/books")
+@RequestMapping("/api/books")
 public class BookController {
 
     private final BookService bookService;
@@ -49,4 +50,10 @@ public class BookController {
     public void deleteBook(@PathVariable Long id) {
         bookService.deleteById(id);
     }
+
+    @GetMapping("/search")
+    public List<BookDto> searchBooks(BookSearchParameters searchParameters) {
+        return bookService.search(searchParameters);
+    }
+
 }
