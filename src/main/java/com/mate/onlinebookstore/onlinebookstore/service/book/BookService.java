@@ -1,4 +1,4 @@
-package com.mate.onlinebookstore.onlinebookstore.service;
+package com.mate.onlinebookstore.onlinebookstore.service.book;
 
 import com.mate.onlinebookstore.onlinebookstore.dto.BookDto;
 import com.mate.onlinebookstore.onlinebookstore.dto.BookSearchParameters;

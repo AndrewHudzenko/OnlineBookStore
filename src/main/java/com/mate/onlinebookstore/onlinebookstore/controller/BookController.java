@@ -3,7 +3,7 @@ package com.mate.onlinebookstore.onlinebookstore.controller;
 import com.mate.onlinebookstore.onlinebookstore.dto.BookDto;
 import com.mate.onlinebookstore.onlinebookstore.dto.BookSearchParameters;
 import com.mate.onlinebookstore.onlinebookstore.dto.CreateBookRequestDto;
-import com.mate.onlinebookstore.onlinebookstore.service.BookService;
+import com.mate.onlinebookstore.onlinebookstore.service.book.BookService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
