@@ -1,8 +1,8 @@
-package com.mate.onlinebookstore.onlinebookstore.service;
+package com.mate.onlinebookstore.onlinebookstore.service.book;
 
-import com.mate.onlinebookstore.onlinebookstore.dto.BookDto;
-import com.mate.onlinebookstore.onlinebookstore.dto.BookSearchParameters;
-import com.mate.onlinebookstore.onlinebookstore.dto.CreateBookRequestDto;
+import com.mate.onlinebookstore.onlinebookstore.dto.book.BookDto;
+import com.mate.onlinebookstore.onlinebookstore.dto.book.BookSearchParameters;
+import com.mate.onlinebookstore.onlinebookstore.dto.book.CreateBookRequestDto;
 import java.util.List;
 import org.springframework.data.domain.Pageable;
 

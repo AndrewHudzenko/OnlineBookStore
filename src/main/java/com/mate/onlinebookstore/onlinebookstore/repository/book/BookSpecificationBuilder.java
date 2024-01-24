@@ -1,6 +1,6 @@
 package com.mate.onlinebookstore.onlinebookstore.repository.book;
 
-import com.mate.onlinebookstore.onlinebookstore.dto.BookSearchParameters;
+import com.mate.onlinebookstore.onlinebookstore.dto.book.BookSearchParameters;
 import com.mate.onlinebookstore.onlinebookstore.model.Book;
 import com.mate.onlinebookstore.onlinebookstore.repository.SpecificationBuilder;
 import com.mate.onlinebookstore.onlinebookstore.repository.SpecificationProviderManager;

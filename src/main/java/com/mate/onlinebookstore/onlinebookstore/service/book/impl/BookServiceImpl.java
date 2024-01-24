@@ -1,14 +1,14 @@
-package com.mate.onlinebookstore.onlinebookstore.service.impl;
+package com.mate.onlinebookstore.onlinebookstore.service.book.impl;
 
-import com.mate.onlinebookstore.onlinebookstore.dto.BookDto;
-import com.mate.onlinebookstore.onlinebookstore.dto.BookSearchParameters;
-import com.mate.onlinebookstore.onlinebookstore.dto.CreateBookRequestDto;
+import com.mate.onlinebookstore.onlinebookstore.dto.book.BookDto;
+import com.mate.onlinebookstore.onlinebookstore.dto.book.BookSearchParameters;
+import com.mate.onlinebookstore.onlinebookstore.dto.book.CreateBookRequestDto;
 import com.mate.onlinebookstore.onlinebookstore.exception.EntityNotFoundException;
-import com.mate.onlinebookstore.onlinebookstore.mapper.BookMapper;
+import com.mate.onlinebookstore.onlinebookstore.mapper.book.BookMapper;
 import com.mate.onlinebookstore.onlinebookstore.model.Book;
 import com.mate.onlinebookstore.onlinebookstore.repository.book.BookRepository;
 import com.mate.onlinebookstore.onlinebookstore.repository.book.BookSpecificationBuilder;
-import com.mate.onlinebookstore.onlinebookstore.service.BookService;
+import com.mate.onlinebookstore.onlinebookstore.service.book.BookService;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
