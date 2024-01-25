@@ -2,27 +2,31 @@ package com.mate.onlinebookstore.onlinebookstore.annotation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import java.lang.reflect.Field;
+import java.util.Objects;
 
 public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Object> {
-
     private String firstFieldName;
     private String secondFieldName;
 
     @Override
-    public void initialize(FieldMatch constraintAnnotation) {
-        firstFieldName = constraintAnnotation.first();
-        secondFieldName = constraintAnnotation.second();
+    public void initialize(final FieldMatch constraintAnnotation) {
+        this.firstFieldName = constraintAnnotation.first();
+        this.secondFieldName = constraintAnnotation.second();
     }
 
     @Override
-    public boolean isValid(Object value, ConstraintValidatorContext context) {
+    public boolean isValid(final Object value, final ConstraintValidatorContext context) {
         try {
-            Object firstFieldValue = value.getClass().getDeclaredField(firstFieldName).get(value);
-            Object secondFieldValue = value.getClass().getDeclaredField(secondFieldName).get(value);
-            return firstFieldValue != null && firstFieldValue.equals(secondFieldValue);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            // Handle exceptions appropriately
-            return false;
+            Field firstField = value.getClass().getDeclaredField(firstFieldName);
+            firstField.setAccessible(true);
+            final Object firstValue = firstField.get(value);
+            Field secondField = value.getClass().getDeclaredField(secondFieldName);
+            secondField.setAccessible(true);
+            final Object secondValue = secondField.get(value);
+            return Objects.equals(firstValue, secondValue);
+        } catch (final Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }
