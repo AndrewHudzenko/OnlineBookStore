@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-admin-to-users-table
+      author: Andrew Hudzenko
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: email, value: "admin@gmail.com" }
+              - column: { name: password, value: "$2a$12$CaILA8BnJI/LJ378zVy4FuNrBbAMbBr1vLa8zUvTEIfh7smo889fK" }
+              - column: { name: first_name, value: "admin" }
+              - column: { name: last_name, value: "admin" }
