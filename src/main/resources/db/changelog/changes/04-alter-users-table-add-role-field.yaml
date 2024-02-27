@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: alter-users-table-add-role-field.yaml
+      author: Andrew Hudzenko
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: role
+                  type: ENUM('ROLE_ADMIN','ROLE_USER','ROLE_MANAGER')
