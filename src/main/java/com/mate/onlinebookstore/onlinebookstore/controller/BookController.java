@@ -11,6 +11,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,16 +27,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/books")
 public class BookController {
-
     private final BookService bookService;
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping
     @Operation(summary = "Get all books",
             description = "Get a list of all available books")
-    private List<BookDto> getAll(Pageable pageable) {
+    public List<BookDto> getAll(Pageable pageable) {
         return bookService.findAll(pageable);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping("/search")
     @Operation(summary = "Get list of books by parameters",
             description = "Get list of books by parameters")
@@ -43,6 +45,7 @@ public class BookController {
         return bookService.search(searchParameters);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping("/{id}")
     @Operation(summary = "Get a book by id",
             description = "Get a book by id if available")
@@ -50,6 +53,7 @@ public class BookController {
         return bookService.findById(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
     @Operation(summary = "Create/Add a book",
             description = "Create/Add a new book")
@@ -57,6 +61,7 @@ public class BookController {
         return bookService.create(bookRequestDto);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/{id}")
     @Operation(summary = "Update a book",
             description = "Update a book if available")
@@ -65,6 +70,7 @@ public class BookController {
         return bookService.update(id, bookRequestDto);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a book",
