@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-roles-for-admin-to-users-table.yaml
+      author: Andrew Hudzenko
+      changes:
+        - update:
+            tableName: users
+            columns:
+              - column: { name: role, value: "ROLE_ADMIN"}
+            where: email='admin@gmail.com'
