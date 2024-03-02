@@ -6,4 +6,6 @@ import com.mate.onlinebookstore.onlinebookstore.exception.RegistrationException;
 
 public interface UserService {
     UserResponseDto register(UserRegistrationRequestDto requestDto) throws RegistrationException;
+
+    UserResponseDto getById(Long id);
 }
