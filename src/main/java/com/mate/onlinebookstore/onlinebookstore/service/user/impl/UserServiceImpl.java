@@ -8,6 +8,7 @@ import com.mate.onlinebookstore.onlinebookstore.model.User;
 import com.mate.onlinebookstore.onlinebookstore.repository.user.UserRepository;
 import com.mate.onlinebookstore.onlinebookstore.service.user.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +31,13 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.toDto(userRepository.save(user));
     }
+
+    @Override
+    @Cacheable(value = "UserService::getById", key = "#id")
+    public UserResponseDto getById(Long id) {
+        return userMapper.toDto(userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(String.format("User with id %s does not exist", id))));
+    }
+
+
 }
